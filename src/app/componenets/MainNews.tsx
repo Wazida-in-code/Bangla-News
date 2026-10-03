@@ -1,8 +1,16 @@
 import Image from "next/image";
 
-const MainNews = ({ mainNews }) => {
+interface MainNewsType{
+  id: number
+  imageUrl: string,
+  category: string,
+  title: string,
+  description: string
+}
+
+const MainNews = ({ mainNews }: {mainNews:MainNewsType[]}) => {
     const [firstNews, ...othersNews] = mainNews;
-  console.log(othersNews);
+
   return (
     <div className="flex mt-6 gap-4 mb-4">
       <div className="card bg-base-100 w-96 shadow-sm">
