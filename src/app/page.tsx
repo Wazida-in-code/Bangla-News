@@ -1,5 +1,6 @@
 import MainNews from "./componenets/MainNews";
 import Marquee from "./componenets/Marquee";
+import MostRead from "./componenets/MostRead";
 import NewsCard from "./componenets/NewsCard";
 
 interface AllNewsType{
@@ -33,13 +34,12 @@ export default async function Home() {
   const allNews = data.data;
   const mainNews = allNews[0].articles;
   const allOtherNews = allNews.slice(1);
-  console.log(allOtherNews);
 
   return (
     <div>
       <Marquee />
 
-      <div className="grid grid-cols-3 w-11/12 mx-auto">
+      <div className="grid grid-cols-3 w-11/12 mx-auto gap-9">
         {/* main news */}
         <div className="col-span-2">
           <MainNews mainNews={mainNews} />
@@ -62,7 +62,9 @@ export default async function Home() {
         </div>
 
         {/* most read news */}
-        <div className="col-span-1 bg-red-200 p-20"></div>
+        <div className="col-span-1 mt-6">
+            <MostRead />
+        </div>
       </div>
     </div>
   );
