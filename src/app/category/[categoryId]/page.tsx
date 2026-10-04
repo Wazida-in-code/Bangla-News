@@ -23,10 +23,11 @@ const CategoryIdPage = async ({ params }: {params: {categoryId: string}}) => {
         {data.title}
       </h1>
 
-      <Link href={``}>
         <div className="grid grid-cols-3 gap-4 mt-4">
           {categoryData.map((allData) => (
-            <div key={allData.id} className="card bg-base-100 shadow-sm">
+            <div key={allData.id}>
+            <Link href={`/news/${allData.id}`}>
+            <div className="card bg-base-100 shadow-sm">
               <figure>
                 <Image
                   width={500}
@@ -41,9 +42,10 @@ const CategoryIdPage = async ({ params }: {params: {categoryId: string}}) => {
                 <p>{allData.description}</p>
               </div>
             </div>
+            </Link>
+            </div>
           ))}
         </div>
-      </Link>
     </div>
   );
 };
