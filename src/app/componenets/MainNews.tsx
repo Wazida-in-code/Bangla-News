@@ -1,15 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 
-interface MainNewsType{
-  id: number
-  imageUrl: string,
-  category: string,
-  title: string,
-  description: string
+interface MainNewsType {
+  id: number;
+  imageUrl: string;
+  category: string;
+  title: string;
+  description: string;
 }
 
-const MainNews = ({ mainNews }: {mainNews:MainNewsType[]}) => {
-    const [firstNews, ...othersNews] = mainNews;
+const MainNews = ({ mainNews }: { mainNews: MainNewsType[] }) => {
+  const [firstNews, ...othersNews] = mainNews;
 
   return (
     <div className="flex mt-6 gap-4 mb-4">
@@ -25,15 +26,15 @@ const MainNews = ({ mainNews }: {mainNews:MainNewsType[]}) => {
       </div>
 
       <div className="border overflow-hidden border-neutral-200 rounded-xl">
-        {
-            othersNews.slice(0,4).map((news) => (
-                <div key={news.id} className="border border-neutral-200 p-3">
-                    <p className="text-red-700 pb-1 font-semibold">{news.category}</p>
+        {othersNews.slice(0, 4).map((news) => (
+          <Link key={news.id} href={`/news/${news.id}`}>
+            <div className="border border-neutral-200 p-3">
+              <p className="text-red-700 pb-1 font-semibold">{news.category}</p>
 
-                    <h3 className="font-bold">{news.title}</h3>
-                </div>
-            ))
-        }
+              <h3 className="font-bold">{news.title}</h3>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
