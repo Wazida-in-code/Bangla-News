@@ -1,5 +1,4 @@
 import MainNews from "./componenets/MainNews";
-import Marquee from "./componenets/Marquee";
 import MostRead from "./componenets/MostRead";
 import NewsCard from "./componenets/NewsCard";
 
@@ -37,7 +36,6 @@ export default async function Home() {
 
   return (
     <div>
-      <Marquee />
 
       <div className="grid grid-cols-3 w-11/12 mx-auto gap-9">
         {/* main news */}
