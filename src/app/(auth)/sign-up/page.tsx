@@ -36,7 +36,11 @@ const SignUpPage = () => {
     const data = await authClient.signIn.social({
       provider: "google",
     });
-    console.log(data);
+  };
+  const handleGithubSignUp = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
   };
 
   return (
@@ -86,6 +90,9 @@ const SignUpPage = () => {
       </form>
       <button onClick={handleGoogleSignUp} className="btn mt-3 bg-blue-100">
         Sign Up with Google
+      </button>
+      <button onClick={handleGithubSignUp} className="btn mt-3 bg-blue-100">
+        Sign Up with Github
       </button>
     </div>
   );
