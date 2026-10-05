@@ -32,12 +32,12 @@ const SignUpPage = () => {
     }
   };
 
-  // const handleGoogleSignUp = async () => {
-  //   const data = await authClient.signIn.social({
-  //     provider: "google",
-  //   });
-  //   console.log(data);
-  // };
+  const handleGoogleSignUp = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+  };
 
   return (
     <div className="flex flex-col items-center mt-6">
@@ -84,9 +84,9 @@ const SignUpPage = () => {
           </button>
         </fieldset>
       </form>
-      {/* <button onClick={handleGoogleSignUp} className="btn mt-3 bg-blue-100">
+      <button onClick={handleGoogleSignUp} className="btn mt-3 bg-blue-100">
         Sign Up with Google
-      </button> */}
+      </button>
     </div>
   );
 };
