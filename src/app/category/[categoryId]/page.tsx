@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface categoryDataType{
     title: string,
@@ -17,6 +18,10 @@ const CategoryIdPage = async ({ params }: {params: {categoryId: string}}) => {
   );
   const data = await res.json();
   const categoryData: categoryDataType[] = data.data;
+
+  if (!categoryData){
+    notFound()
+  }
   return (
     <div className="w-11/12 mx-auto">
       <h1 className="border-b-2 border-red-700 font-bold text-2xl">

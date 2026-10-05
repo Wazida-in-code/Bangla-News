@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 
 
 const NewsDetailsPage = async({params}:{params:{detailsId:string}}) => {
@@ -5,6 +6,10 @@ const NewsDetailsPage = async({params}:{params:{detailsId:string}}) => {
     const res = await fetch(`https://news-api-v2.vercel.app/api/article/${detailsId}`)
     const data = await res.json()
     const allNewsData = data.data
+    
+    if (!allNewsData){
+        notFound()
+    }
 
     return (
         <div className="w-11/12 mt-10 mx-auto">
