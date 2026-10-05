@@ -3,6 +3,7 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "./componenets/Header";
 import Marquee from "./componenets/Marquee";
+import { ToastContainer } from "react-toastify";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <Marquee />
         {children}
+        <ToastContainer />
         </body>
     </html>
   );

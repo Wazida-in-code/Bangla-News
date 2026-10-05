@@ -1,5 +1,6 @@
 "use client";
 import { signOut, useSession } from "@/lib/auth-client";
+import Link from "next/link";
 
 const UserInfo = () => {
   const { data: session } = useSession();
@@ -26,13 +27,15 @@ const UserInfo = () => {
         </div>
       ) : (
         <div>
-          <button className="btn btn-ghost text-neutral-700 transition-colors hover:text-red-700">
+          <Link href="/sign-in"><button className="btn btn-ghost text-neutral-700 transition-colors hover:text-red-700">
             সাইন ইন
-          </button>
-
-          <button className="btn bg-red-600 text-white px-3 py-1.5 font-semibold transition-colors hover:bg-red-800">
+          </button></Link>
+          
+          <Link href="/sign-up">
+            <button className="btn bg-red-600 text-white px-3 py-1.5 font-semibold transition-colors hover:bg-red-800">
             সাইন আপ
           </button>
+          </Link>
         </div>
       )}
     </div>
