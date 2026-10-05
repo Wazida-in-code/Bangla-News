@@ -33,6 +33,12 @@ const SignInPage = () => {
       });
       console.log(data);
     };
+  const handleGithubSignIn = async () => {
+      const data = await authClient.signIn.social({
+        provider: "github",
+      });
+      console.log(data);
+    };
 
 
   return (
@@ -66,6 +72,7 @@ const SignInPage = () => {
       </form>
 
       <button onClick={handleGoogleSignIn} className="btn bg-blue-100 mt-3">Sign In with Google</button>
+      <button onClick={handleGithubSignIn} className="btn bg-blue-100 mt-3">Sign In with Github</button>
     </div>
   );
 };
